@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h6>{{ codename }}</h6>
   </div>
 </template>
 
@@ -12,7 +13,8 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Hello World!'
+      msg: 'Hello World!',
+      codename: 'Fig'
     }
   }
 }
