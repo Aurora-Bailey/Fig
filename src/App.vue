@@ -3,6 +3,7 @@
     <hello></hello>
 
     <button type="button" class="btn btn-info">Info</button>
+    <i class="fa fa-camera-retro"></i> fa-camera-retro
 
     <nav-main></nav-main>
   </div>
@@ -27,6 +28,11 @@ export default {
   @import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 </style>
 -->
+
+<!-- Font Awesome -->
+<style>
+  @import 'lib/font-awesome/css/font-awesome.min.css';
+</style>
 
 <!-- Sass -->
 <style lang="scss">
