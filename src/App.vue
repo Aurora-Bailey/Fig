@@ -1,65 +1,74 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
     <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-    </p>
-    <p>
-      To get a better understanding of how this boilerplate works, check out
-      <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
-      It is also recommended to go through the docs for
-      <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
-      <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
-      If you have any issues with the setup, please file an issue at this boilerplate's
-      <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
-    </p>
-    <p>
-      You may also want to checkout
-      <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
-      <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
-    </p>
+
+    <button type="button" class="btn btn-info">Info</button>
+
+    <nav-main></nav-main>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
+import NavMain from './components/NavMain'
 
 export default {
   components: {
-    Hello
+    Hello,
+    NavMain
   }
 }
 </script>
 
-<style lang="sass">
-html
-  height: 100%
+<!-- BootStrap -->
+<!--
+<style>
+  @import '../node_modules/bootstrap/dist/css/bootstrap.css';
+  @import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
+</style>
+-->
 
+<!-- Sass -->
+<style lang="scss">
 
-body
-  display: flex
-  align-items: center
-  justify-content: center
-  height: 100%
-  background-color: black
+  /* SASS imports*/
+  @import "sass/variables";
+  @import "sass/mixins";
 
+  /* Main styles*/
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-#app
-  color: #2c3e50
-  margin-top: -100px
-  max-width: 600px
-  font-family: Source Sans Pro, Helvetica, sans-serif
-  text-align: center
+  #app {
+    width: 100vw;
+    height: 100vh;
+    font-family: Helvetica, sans-serif;
+    position: relative;
+    font-size: 4vh;
 
+    @include portrait{
+      font-size: 4vh;
+      background-color: purple;
+    };
+    @include landscape{
+      font-size: 4vw;
+      background-color: yellow;
+    };
+  }
+  button{
+    font-size: 4vh;
+    padding: 1vh 2vh;
 
-#app a
-  color: #42b983
-  text-decoration: none
-
-
-.logo
-  width: 100px
-  height: 100px
+    @include portrait{
+      font-size: 4vh;
+      padding: 1vh 2vh
+    };
+    @include landscape{
+      font-size: 4vw;
+      padding: 1vw 2vw;
+    };
+  }
 
 </style>
