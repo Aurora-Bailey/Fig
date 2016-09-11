@@ -1,24 +1,35 @@
 <template>
   <div id="app">
-    <hello></hello>
+    <profile :page="page" v-show="page=='profile'"></profile>
+    <match :page="page" v-show="page=='match'"></match>
+    <chat :page="page" v-show="page=='chat'"></chat>
 
-    <button type="button" class="btn btn-info">Info</button>
-    <i class="fa fa-camera-retro"></i> fa-camera-retro
-
-    <nav-main></nav-main>
+    <nav-main :page.sync="page"></nav-main>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-import NavMain from './components/NavMain'
+  /* Components */
+  import NavMain from './components/NavMain'
 
-export default {
-  components: {
-    Hello,
-    NavMain
+  /* Pages */
+  import Profile from './pages/Profile'
+  import Match from './pages/Match'
+  import Chat from './pages/Chat'
+
+  export default {
+    components: {
+      NavMain,
+      Profile,
+      Match,
+      Chat
+    },
+    data () {
+      return {
+        page: 'profile'
+      }
+    }
   }
-}
 </script>
 
 <!-- BootStrap -->

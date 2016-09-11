@@ -1,12 +1,12 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div class="nav-main">
-    <div class="nav-button">
+    <div class="nav-button" v-on:click="page='profile'">
       <i class="fa fa-child"></i>
     </div>
-    <div class="nav-button">
+    <div class="nav-button"  v-on:click="page='match'">
       <i class="fa fa-group"></i>
     </div>
-    <div class="nav-button">
+    <div class="nav-button"  v-on:click="page='chat'">
       <i class="fa fa-comments"></i>
     </div>
   </div>
@@ -14,12 +14,11 @@
 
 <script>
 export default {
+  props: {
+    page: {twoWay: true}
+  },
   data () {
     return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
       msg: 'Hello World!'
     }
   }
