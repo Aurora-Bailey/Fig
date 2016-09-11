@@ -48,19 +48,24 @@ export default {
   }
 
   #app {
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 15vh;
+    top: 0;
     font-family: Helvetica, sans-serif;
-    position: relative;
     font-size: 4vh;
+    background-color: $base;
 
     @include portrait{
-      font-size: 4vh;
-      background-color: purple;
+      font-size: 4vw;
+      bottom: 15vw;
+      left: 0;
     };
     @include landscape{
-      font-size: 4vw;
-      background-color: yellow;
+      font-size: 4vh;
+      bottom: 0;
+      left: 15vh;
     };
   }
   button{
@@ -68,12 +73,12 @@ export default {
     padding: 1vh 2vh;
 
     @include portrait{
-      font-size: 4vh;
-      padding: 1vh 2vh
-    };
-    @include landscape{
       font-size: 4vw;
       padding: 1vw 2vw;
+    };
+    @include landscape{
+      font-size: 4vh;
+      padding: 1vh 2vh;
     };
   }
 
