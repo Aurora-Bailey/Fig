@@ -1,6 +1,49 @@
 <template>
   <div class="chat">
     <div>{{msg}} {{page}}</div>
+    <div>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+      asdf<br>
+
+    </div>
   </div>
 </template>
 

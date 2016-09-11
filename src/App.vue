@@ -1,8 +1,14 @@
 <template>
   <div id="app">
-    <profile :page="page" v-show="page=='profile'"></profile>
-    <match :page="page" v-show="page=='match'"></match>
-    <chat :page="page" v-show="page=='chat'"></chat>
+    <div id="page-viewport">
+      <profile :page="page" v-show="page=='profile'"></profile>
+      <match :page="page" v-show="page=='match'"></match>
+      <chat :page="page" v-show="page=='chat'"></chat>
+    </div>
+
+    <login :page.sync="page"  v-show="page=='login'"></login>
+    <splash :page="page"  v-show="page=='splash'"></splash>
+
 
     <nav-main :page.sync="page"></nav-main>
   </div>
@@ -16,18 +22,27 @@
   import Profile from './pages/Profile'
   import Match from './pages/Match'
   import Chat from './pages/Chat'
+  import Login from './pages/Login'
+  import Splash from './pages/Splash'
 
   export default {
     components: {
       NavMain,
       Profile,
       Match,
-      Chat
+      Chat,
+      Login,
+      Splash
     },
     data () {
       return {
-        page: 'profile'
+        page: 'splash'
       }
+    },
+    created: function () {
+      setTimeout(() => {
+        this.page = 'login'
+      }, 2000)
     }
   }
 </script>
@@ -59,24 +74,36 @@
   }
 
   #app {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 15vh;
-    top: 0;
+    height: 100vh;
+    width: 100%;
+    position: relative;
     font-family: Helvetica, sans-serif;
     font-size: 4vh;
     background-color: $base;
 
     @include portrait{
       font-size: 4vw;
-      bottom: 15vw;
-      left: 0;
     };
     @include landscape{
       font-size: 4vh;
-      bottom: 0;
+    };
+  }
+  #page-viewport{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 15vh;
+    top: 0;
+    z-index: 100;
+    overflow: auto;
+
+    @include portrait{
+      left: 0;
+      bottom: 15vw;
+    };
+    @include landscape{
       left: 15vh;
+      bottom: 0;
     };
   }
   button{
