@@ -8,11 +8,14 @@
         Tell us a bit about yourself.
       </div>
 
-      <div class="age box-unit">
-        What year were you born?<br>
-        <input type="text" placeholder="YYYY">
+      <div class="spacer">-</div>
 
+      <div class="age box-unit">
+        Age<br>
+        <input type="text" class="box-unit" placeholder="How old are you?">
       </div>
+
+      <div class="spacer">-</div>
 
       <div class="done full-button box-unit" v-on:click="page='profile'">
         Next <i class="fa fa-arrow-right fa-fw"></i>
@@ -51,39 +54,31 @@
     text-align: center;
     color: $base-alt-soft;
 
-    .box-unit {
-      margin: 30px 0 0;
+    padding: 0.5em;
 
-      @include portrait{
-        margin: 7.5vw 0 0;
-      };
-      @include landscape{
-        margin: 7.5vh 0 0;
-      };
+    .box-unit {
+      margin: 0.5em 0 0;
     }
 
+    .spacer {
+      padding: 2em;
+      text-align: center;
+      visibility: hidden;
+    }
 
     .welcome {
-      font-size: 60px;
-
-      @include portrait{
-        font-size: 14vw;
-      };
-      @include landscape{
-        font-size: 14vh;
-      };
+      font-size: 3.5em;
     }
 
     .tellus {
-      font-size: 20px;
-
-      @include portrait{
-        font-size: 5vw;
-      };
-      @include landscape{
-        font-size: 5vh;
-      };
+      font-size: 1.25em;
     }
+
+    .age {
+
+    }
+
+
 
   }
 
