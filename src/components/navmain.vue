@@ -6,6 +6,9 @@
     <div class="nav-button"  v-on:click="page='match'" v-bind:class="{ 'active': page=='match' }">
       <i class="fa fa-group"></i>
     </div>
+    <div class="nav-button"  v-on:click="page='group'" v-bind:class="{ 'active': page=='group' }">
+      <i class="fa fa-soccer-ball-o"></i>
+    </div>
     <div class="nav-button"  v-on:click="page='chat'" v-bind:class="{ 'active': page=='chat' }">
       <i class="fa fa-comments"></i>
     </div>
@@ -32,7 +35,7 @@ export default {
 
   .nav-main {
     height: 100vh;
-    width: 15vh;
+    width: 100px;
     position: absolute;
     bottom: 0;
     right: auto;
@@ -64,10 +67,10 @@ export default {
   }
 
   .nav-button {
-    font-size: 10vh;
+    font-size: 60px;
     text-align: center;
-    height: 15vh;
-    line-height: 15vh;
+    height: 100px;
+    line-height: 100px;
     cursor: pointer;
 
     &:hover {
@@ -80,7 +83,7 @@ export default {
 
     @include portrait{
       font-size: 10vw;
-      width: 33.3vw;
+      width: 25vw;
       display: inline-block;
       height: 15vw;
       line-height: 15vw;
@@ -88,8 +91,9 @@ export default {
     };
     @include landscape{
       font-size: 10vh;
-      height: 33.3vh;
-      line-height: 33.3vh;
+      width: 15vh;
+      height: 25vh;
+      line-height: 25vh;
     };
   }
 

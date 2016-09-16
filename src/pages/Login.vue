@@ -4,7 +4,7 @@
     <div class="login-options">
       <div class="login-facebook" v-on:click="page='profile'"><div class="icon"><i class="fa fa-facebook fa-fw"></i></div> <div class="text">Login with Facebook</div></div>
       <div class="login-google" v-on:click="page='profile'"><div class="icon"><i class="fa fa-google-plus fa-fw"></i></div> <div class="text">Login with Google</div></div>
-      <div class="login-twitter" v-on:click="page='profile'"><div class="icon"><i class="fa fa-twitter fa-fw"></i></div> <div class="text">Login with Twitter</div></div>
+      <div class="login-twitter" v-on:click="page='first-login'"><div class="icon"><i class="fa fa-twitter fa-fw"></i></div> <div class="text">Login with Twitter</div></div>
     </div>
   </div>
 </template>
@@ -66,7 +66,7 @@
     right: 0;
     transform: translateY(-50%);
     margin: auto;
-    font-size: 4.5vh;
+    font-size: 19px;
 
     @include portrait{
       font-size: 4.5vw;
@@ -77,11 +77,11 @@
   }
 
   .login-facebook, .login-google, .login-twitter {
-    width: 75vh;
-    height: 12vh;
-    line-height: 12vh;
-    margin: 2vh auto;
-    border: 0.5vh solid rgba(0,0,0,0.2);
+    width: 310px;
+    height: 50px;
+    line-height: 50px;
+    margin: 8px auto;
+    border: 2px solid rgba(0,0,0,0.2);
     cursor: pointer;
 
     @include portrait{
@@ -124,20 +124,20 @@
   .text {
     display: inline-block;
     float: left;
-    padding: 0 5vh;
+    padding: 0 20px;
 
     @include portrait{
       padding: 0 5vw;
     };
     @include landscape{
-      padding: 0 5vw;
+      padding: 0 5vh;
     };
   }
   .icon {
     display: inline-block;
     text-align: center;
-    width: 12vh;
-    border-right: 0.5vh solid rgba(0,0,0,0.2);
+    width: 50px;
+    border-right: 2px solid rgba(0,0,0,0.2);
     float: left;
 
     @include portrait{

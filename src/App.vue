@@ -3,10 +3,12 @@
     <div id="page-viewport">
       <profile :page="page" v-show="page=='profile'"></profile>
       <match :page="page" v-show="page=='match'"></match>
+      <group :page="page" v-show="page=='group'"></group>
       <chat :page="page" v-show="page=='chat'"></chat>
     </div>
 
     <login :page.sync="page"  v-show="page=='login'"></login>
+    <first-login :page.sync="page"  v-show="page=='first-login'"></first-login>
     <splash :page="page"  v-show="page=='splash'"></splash>
 
 
@@ -21,7 +23,9 @@
   /* Pages */
   import Profile from './pages/Profile'
   import Match from './pages/Match'
+  import Group from './pages/Group'
   import Chat from './pages/Chat'
+  import FirstLogin from './pages/FirstLogin'
   import Login from './pages/Login'
   import Splash from './pages/Splash'
 
@@ -30,7 +34,9 @@
       NavMain,
       Profile,
       Match,
+      Group,
       Chat,
+      FirstLogin,
       Login,
       Splash
     },
@@ -75,10 +81,10 @@
 
   #app {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     position: relative;
     font-family: Helvetica, sans-serif;
-    font-size: 4vh;
+    font-size: 18px;
     background-color: $base;
 
     @include portrait{
@@ -92,23 +98,26 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    left: 15vh;
+    left: 100px;
     top: 0;
     z-index: 100;
+    padding: 20px;
     overflow: auto;
 
     @include portrait{
       left: 0;
       bottom: 15vw;
+      padding: 2vw;
     };
     @include landscape{
       left: 15vh;
       bottom: 0;
+      padding: 2vh;
     };
   }
   button{
-    font-size: 4vh;
-    padding: 1vh 2vh;
+    font-size: 18px;
+    padding: 5px 10px;
 
     @include portrait{
       font-size: 4vw;
