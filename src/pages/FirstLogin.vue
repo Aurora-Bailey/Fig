@@ -4,21 +4,28 @@
       <div class="welcome box-unit">
         Welcome!
       </div>
-      <div class="tellus box-unit">
-        Tell us a bit about yourself.
+
+      <div class="spacer">-</div>
+
+      <div class="intro box-unit">
+        What do you think about?
+      </div>
+
+      <div class="outro box-unit">
+        Tip: You can add your own, <br>
+        custom HashTags in the profile tab later.
       </div>
 
       <div class="spacer">-</div>
 
-      <div class="age box-unit">
-        Age<br>
-        <input type="text" class="box-unit" placeholder="How old are you?">
+      <div class="hobbies box-unit">
+        <div v-for="item in hobbies" class="hash-item"><i class="fa fa-hashtag fa-fw hashtag"></i> <span class="text">{{item}}</span></div>
       </div>
 
       <div class="spacer">-</div>
 
       <div class="done full-button box-unit" v-on:click="page='profile'">
-        Next <i class="fa fa-arrow-right fa-fw"></i>
+        Done <i class="fa fa-check fa-fw"></i>
       </div>
     </div>
   </div>
@@ -31,6 +38,7 @@
     },
     data () {
       return {
+        hobbies: ['Gaming', 'Movies', 'Fishing', 'Gardening', 'Walking', 'Exercise', 'ListeningToMusic', 'Hunting', 'TeamSports', 'Shopping', 'Traveling', 'Sleeping', 'Socializing', 'VideoGames', 'Sewing', 'Golf', 'Relaxing', 'Crafts', 'WatchingSports', 'Bicycling', 'PlayingCards', 'Hiking', 'Cooking', 'EatingOut', 'Swimming', 'Camping', 'Skiing', 'Writing', 'Boating', 'Motorcycling', 'AnimalCare', 'Bowling', 'Painting', 'Running', 'Dancing', 'HorsebackRiding', 'Tennis', 'Billiards', 'VolunteerWork'],
         msg: 'FirstLogin page.'
       }
     }
@@ -57,28 +65,58 @@
     padding: 0.5em;
 
     .box-unit {
-      margin: 0.5em 0 0;
     }
 
     .spacer {
-      padding: 2em;
+      padding: 1em;
       text-align: center;
       visibility: hidden;
     }
 
     .welcome {
       font-size: 3.5em;
+      margin-top: 1em;
     }
 
-    .tellus {
+    .intro {
       font-size: 1.25em;
+      font-weight: bold;
     }
 
-    .age {
+    .hobbies {
 
+
+      .hash-item{
+        padding: 0.4em 1em;
+        border: 0.1em solid $base-alt-soft;
+        margin: 0.3em;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 5em;
+
+        @include mobile{
+          // display: block;
+        };
+      }
+
+      .text, .hashtag{
+        font-size: 2em;
+        line-height: inherit;
+      }
+
+      .hashtag {
+        opacity: 0.3;
+      }
     }
 
+    .outro {
+      margin-top: 1em;
+      color: lighten($base-alt-soft, 20%);
+    }
 
+    .done {
+      margin-bottom: 0.25em;
+    }
 
   }
 
