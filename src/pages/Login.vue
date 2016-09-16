@@ -1,10 +1,10 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
-  <div class="login">
+  <div id="login" class="login">
     <div class="login-logo">LOGO</div>
     <div class="login-options">
-      <div class="login-facebook" v-on:click="page='profile'"><div class="icon"><i class="fa fa-facebook fa-fw"></i></div> <div class="text">Login with Facebook</div></div>
-      <div class="login-google" v-on:click="page='profile'"><div class="icon"><i class="fa fa-google-plus fa-fw"></i></div> <div class="text">Login with Google</div></div>
-      <div class="login-twitter" v-on:click="page='first-login'"><div class="icon"><i class="fa fa-twitter fa-fw"></i></div> <div class="text">Login with Twitter</div></div>
+      <div class="login-facebook login-button" v-on:click="page='profile'"><div class="text"><i class="fa fa-facebook fa-fw"></i> Login with Facebook</div></div>
+      <div class="login-google login-button" v-on:click="page='profile'"><div class="text"><i class="fa fa-google-plus fa-fw"></i> Login with Google</div></div>
+      <div class="login-twitter login-button" v-on:click="page='first-login'"><div class="text"><i class="fa fa-twitter fa-fw"></i> Login with Twitter</div></div>
     </div>
   </div>
 </template>
@@ -23,11 +23,11 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../sass/variables";
   @import "../sass/mixins";
 
-  .login {
+  #login {
     background-color: $base;
     position: absolute;
     bottom: 0;
@@ -36,117 +36,58 @@
     top: 0;
     z-index: 10000;
     overflow: auto;
-  }
 
-  .login-logo {
-    color: $accent;
-    text-align: center;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 8vh;
-    font-size: 15vh;
+    .login-logo {
+      font-size: 3.75em;
+      padding: 0.5em;
+      text-align: center;
+    }
 
-    @include portrait{
-      top: 15vh;
-      font-size: 15vw;
-    };
-    @include landscape{
-      top: 8vh;
-      font-size: 15vh;
-    };
-  }
+    .login-options {
+      color: white;
+      font-weight: bold;
+      margin: auto;
+    }
+    .login-button{
+      border-radius: 3em;
+      width: 18.75em;
+      height: 3em;
+      line-height: 3em;
+      margin: 0.5em auto;
+      cursor: pointer;
+    }
+    .text {
+      text-align: center;
+      font-size: 1.25em;
+    }
 
-  .login-options {
-    color: white;
-    font-weight: bold;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    margin: auto;
-    font-size: 19px;
-
-    @include portrait{
-      font-size: 4.5vw;
-    };
-    @include landscape{
-      font-size: 4.5vh;
-    };
-  }
-
-  .login-facebook, .login-google, .login-twitter {
-    width: 310px;
-    height: 50px;
-    line-height: 50px;
-    margin: 8px auto;
-    border: 2px solid rgba(0,0,0,0.2);
-    cursor: pointer;
-
-    @include portrait{
-      width: 75vw;
-      height: 12vw;
-      line-height: 12vw;
-      margin: 2vw auto;
-      border: 0.5vw solid rgba(0,0,0,0.2);
-    };
-    @include landscape{
-      width: 75vh;
-      height: 12vh;
-      line-height: 12vh;
-      margin: 2vh auto;
-      border: 0.5vh solid rgba(0,0,0,0.2);
-    };
-  }
-
-  .login-facebook {
-    background-color: $facebook;
-    &:hover {
-      background-color: darken($facebook, 10%);
-      color: darken(white, 10%)
+    .login-facebook {
+      background-color: $facebook;
+      box-shadow: 0 0 0.5em 0 $facebook;
+      &:hover {
+        background-color: darken($facebook, 10%);
+        color: darken(white, 10%)
+      }
+    }
+    .login-google {
+      background-color: $googleplus;
+      box-shadow: 0 0 0.5em 0 $googleplus;
+      &:hover {
+        background-color: darken($googleplus, 10%);
+        color: darken(white, 10%)
+      }
+    }
+    .login-twitter {
+      background-color: $twitter;
+      box-shadow: 0 0 0.5em 0 $twitter;
+      &:hover {
+        background-color: darken($twitter, 10%);
+        color: darken(white, 10%)
+      }
     }
   }
-  .login-google {
-    background-color: $googleplus;
-    &:hover {
-      background-color: darken($googleplus, 10%);
-      color: darken(white, 10%)
-    }
-  }
-  .login-twitter {
-    background-color: $twitter;
-    &:hover {
-      background-color: darken($twitter, 10%);
-      color: darken(white, 10%)
-    }
-  }
-  .text {
-    display: inline-block;
-    float: left;
-    padding: 0 20px;
 
-    @include portrait{
-      padding: 0 5vw;
-    };
-    @include landscape{
-      padding: 0 5vh;
-    };
-  }
-  .icon {
-    display: inline-block;
-    text-align: center;
-    width: 50px;
-    border-right: 2px solid rgba(0,0,0,0.2);
-    float: left;
 
-    @include portrait{
-      width: 12vw;
-      border-right: 0.5vw solid rgba(0,0,0,0.2);
-    };
-    @include landscape{
-      width: 12vh;
-      border-right: 0.5vh solid rgba(0,0,0,0.2);
-    };
-  }
+
+
 </style>

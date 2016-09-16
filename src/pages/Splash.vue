@@ -1,5 +1,5 @@
 <template>
-  <div class="splash">
+  <div id="splash" class="splash">
     <div class="splash-logo">LOGO</div>
     <div class="splash-spinner">
       <i class="fa fa-spinner fa-pulse fa-fw"></i>
@@ -20,11 +20,11 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../sass/variables";
   @import "../sass/mixins";
 
-  .splash {
+  #splash {
     background-color: $accent;
     color: $accent-alt;
     position: absolute;
@@ -34,35 +34,16 @@
     top: 0;
     z-index: 10001;
     overflow: auto;
-  }
-  .splash-spinner {
-    font-size: 30vh;
-    line-height: 100vh;
     text-align: center;
 
-    @include portrait{
-      font-size: 30vw;
-    };
-    @include landscape{
-      font-size: 30vh;
-    };
+    .splash-logo {
+      font-size: 3.75em;
+      margin: 0.5em auto;
+    }
+    .splash-spinner {
+      font-size: 7.5em;
+      margin: 0.25em auto;
+    }
   }
 
-  .splash-logo {
-    text-align: center;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 8vh;
-    font-size: 15vh;
-
-    @include portrait{
-      top: 15vh;
-      font-size: 15vw;
-    };
-    @include landscape{
-      top: 8vh;
-      font-size: 15vh;
-    };
-  }
 </style>

@@ -72,60 +72,33 @@
   /* SASS imports*/
   @import "sass/variables";
   @import "sass/mixins";
+  @import "sass/general";
 
   /* Main styles*/
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
   #app {
     height: 100vh;
     width: 100vw;
     position: relative;
-    font-family: Helvetica, sans-serif;
-    font-size: 18px;
-    background-color: $base;
-
-    @include portrait{
-      font-size: 4vw;
-    };
-    @include landscape{
-      font-size: 4vh;
-    };
   }
   #page-viewport{
     position: absolute;
     bottom: 0;
     right: 0;
-    left: 100px;
+    left: 3.75em;
     top: 0;
     z-index: 100;
-    padding: 20px;
+    padding: 1em;
     overflow: auto;
 
     @include portrait{
       left: 0;
-      bottom: 15vw;
-      padding: 2vw;
+      bottom: 3.75em;
+      padding: 0.5em;
     };
     @include landscape{
-      left: 15vh;
+      left: 3.75em;
       bottom: 0;
-      padding: 2vh;
-    };
-  }
-  button{
-    font-size: 18px;
-    padding: 5px 10px;
-
-    @include portrait{
-      font-size: 4vw;
-      padding: 1vw 2vw;
-    };
-    @include landscape{
-      font-size: 4vh;
-      padding: 1vh 2vh;
+      padding: 0.5em;
     };
   }
 

@@ -1,6 +1,8 @@
 <template>
   <div class="profile">
     <div>{{msg}} {{page}}</div>
+    <br>
+    <button>adsf</button>
   </div>
 </template>
 

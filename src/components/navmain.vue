@@ -35,7 +35,7 @@ export default {
 
   .nav-main {
     height: 100vh;
-    width: 100px;
+    width: 3.75em;
     position: absolute;
     bottom: 0;
     right: auto;
@@ -47,9 +47,8 @@ export default {
     background-color: $base-alt;
     color: $base;
 
-
     @include portrait{
-      height: 15vw;
+      height: 3.75em;
       width: 100vw;
       bottom: 0;
       right: 0;
@@ -58,7 +57,7 @@ export default {
     };
     @include landscape{
       height: 100vh;
-      width: 15vh;
+      width: 3.75em;
       bottom: 0;
       right: auto;
       left: 0;
@@ -67,11 +66,16 @@ export default {
   }
 
   .nav-button {
-    font-size: 60px;
     text-align: center;
-    height: 100px;
-    line-height: 100px;
+    height: 3.75em;
+    width: 3.75em;
+    line-height: 3.75em;
     cursor: pointer;
+
+    i {
+      font-size: 2.5em;
+      line-height: inherit;
+    }
 
     &:hover {
       background-color: rgba(120,120,120,0.5);
@@ -82,18 +86,13 @@ export default {
     }
 
     @include portrait{
-      font-size: 10vw;
-      width: 25vw;
+      width: 25vw;/*100 / num buttons*/
       display: inline-block;
-      height: 15vw;
-      line-height: 15vw;
       float: left;
     };
     @include landscape{
-      font-size: 10vh;
-      width: 15vh;
-      height: 25vh;
-      line-height: 25vh;
+      height: 25vh;/*100 / num buttons*/
+      line-height: 25vh;/*100 / num buttons*/
     };
   }
 
