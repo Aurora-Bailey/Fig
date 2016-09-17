@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: path.resolve(__dirname, '../dist/index.html'),//'../dist_android/index.html'),
+    assetsRoot: path.resolve(__dirname, '../dist'),//'../dist_android'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',//'/android_asset/www/',
     productionSourceMap: true,
