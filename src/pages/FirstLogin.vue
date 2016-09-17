@@ -1,4 +1,4 @@
-<template xmlns:v-on="http://www.w3.org/1999/xhtml">
+<template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div id="first-login" class="first-login">
     <div class="narrow-wrapper">
       <div class="welcome box-unit">
@@ -19,7 +19,7 @@
       <div class="spacer">-</div>
 
       <div class="hobbies box-unit">
-        <div v-for="item in hobbies" class="hash-item"><i class="fa fa-hashtag fa-fw hashtag"></i> <span class="text">{{item}}</span></div>
+        <div v-for="item in hobbies" class="hash-item" v-bind:class="{ 'active': item.state }" v-on:click="item.state=!item.state"><i class="fa fa-hashtag fa-fw hashtag"></i> <span class="text">{{item.tag}}</span></div>
       </div>
 
       <div class="spacer">-</div>
@@ -38,7 +38,7 @@
     },
     data () {
       return {
-        hobbies: ['Gaming', 'Movies', 'Fishing', 'Gardening', 'Walking', 'Exercise', 'ListeningToMusic', 'Hunting', 'TeamSports', 'Shopping', 'Traveling', 'Sleeping', 'Socializing', 'VideoGames', 'Sewing', 'Golf', 'Relaxing', 'Crafts', 'WatchingSports', 'Bicycling', 'PlayingCards', 'Hiking', 'Cooking', 'EatingOut', 'Swimming', 'Camping', 'Skiing', 'Writing', 'Boating', 'Motorcycling', 'AnimalCare', 'Bowling', 'Painting', 'Running', 'Dancing', 'HorsebackRiding', 'Tennis', 'Billiards', 'VolunteerWork'],
+        hobbies: [{state: false, tag: 'Gaming'}, {state: false, tag: 'Movies'}, {state: false, tag: 'Fishing'}, {state: false, tag: 'Gardening'}, {state: false, tag: 'Walking'}, {state: false, tag: 'Exercise'}, {state: false, tag: 'ListeningToMusic'}, {state: false, tag: 'Hunting'}, {state: false, tag: 'TeamSports'}, {state: false, tag: 'Shopping'}, {state: false, tag: 'Traveling'}, {state: false, tag: 'Sleeping'}, {state: false, tag: 'Socializing'}, {state: false, tag: 'VideoGames'}, {state: false, tag: 'Sewing'}, {state: false, tag: 'Golf'}, {state: false, tag: 'Relaxing'}, {state: false, tag: 'Crafts'}, {state: false, tag: 'WatchingSports'}, {state: false, tag: 'Bicycling'}, {state: false, tag: 'PlayingCards'}, {state: false, tag: 'Hiking'}, {state: false, tag: 'Cooking'}, {state: false, tag: 'EatingOut'}, {state: false, tag: 'Swimming'}, {state: false, tag: 'Camping'}, {state: false, tag: 'Skiing'}, {state: false, tag: 'Writing'}, {state: false, tag: 'Boating'}, {state: false, tag: 'Motorcycling'}, {state: false, tag: 'AnimalCare'}, {state: false, tag: 'Bowling'}, {state: false, tag: 'Painting'}, {state: false, tag: 'Running'}, {state: false, tag: 'Dancing'}, {state: false, tag: 'HorsebackRiding'}, {state: false, tag: 'Tennis'}, {state: false, tag: 'Billiards'}, {state: false, tag: 'VolunteerWork'}],
         msg: 'FirstLogin page.'
       }
     }
@@ -94,24 +94,36 @@
         cursor: pointer;
         border-radius: 5em;
 
+        &:hover {
+          color: lighten($base-alt-soft, 20%);
+        }
+        @include noselect;
+
         @include mobile{
-          // display: block;
+          cursor: default;
         };
+
+        &.active {
+          color: $accent-alt;
+          border-color: $accent-alt;
+          background-color: $accent;
+        }
       }
 
       .text, .hashtag{
-        font-size: 2em;
+        font-size: 1.2em;
         line-height: inherit;
+        pointer-events: none;
       }
 
       .hashtag {
-        opacity: 0.3;
+        opacity: 0.5;
       }
     }
 
     .outro {
       margin-top: 1em;
-      color: lighten($base-alt-soft, 20%);
+      color: lighten($base-alt-soft, 10%);
     }
 
     .done {
@@ -119,5 +131,4 @@
     }
 
   }
-
 </style>
