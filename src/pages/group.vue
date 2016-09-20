@@ -5,14 +5,14 @@
 </template>
 
 <script>
-export default {
-  props: ['page'],
-  data () {
-    return {
-      msg: 'Group page.'
+  export default {
+    props: ['page'],
+    data () {
+      return {
+        msg: 'Group page.'
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -19,6 +19,7 @@
 <script>
   /* Components */
   import NavMain from './components/NavMain'
+  import Data from './components/Data'
 
   /* Pages */
   import Profile from './pages/Profile'
@@ -41,9 +42,7 @@
       Splash
     },
     data () {
-      return {
-        page: 'splash'
-      }
+      return Data
     },
     created: function () {
       setTimeout(() => {
