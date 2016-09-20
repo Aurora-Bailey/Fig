@@ -17,11 +17,13 @@
 </template>
 
 <script>
-  /* Components */
-  import NavMain from './components/NavMain'
+  /* Data*/
   import Data from './components/Data'
 
-  /* Pages */
+  /* Components */
+  // parts
+  import NavMain from './components/NavMain'
+  // pages
   import Profile from './pages/Profile'
   import Match from './pages/Match'
   import Group from './pages/Group'
