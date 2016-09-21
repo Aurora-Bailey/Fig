@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = {
-  randString: (length, lower, upper, numbers) => {
+class Lib {
+  static  randString(length, lower, upper, numbers) {
     var text = "";
     var possible = "";
     var possLower = 'abcdefghijklmnopqrstuvwxyz';
@@ -19,12 +19,15 @@ module.exports = {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
 
     return text;
-  },
-  distance: (x1, y1, x2, y2) => {
+  }
+
+  static distance(x1, y1, x2, y2) {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-  },
-  deepCopy: (obj) => {
+  }
+
+  static deepCopy(obj) {
     return JSON.parse(JSON.stringify(obj));
-  },
-  test: 'asdf'
+  }
 }
+
+module.exports = Lib;
