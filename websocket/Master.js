@@ -1,46 +1,42 @@
 'use strict';
 
-var os = require('os');
+var os = require('os'),
+  numCores = os.cpus().length,
+  cluster = false,
+  workers = [];
 
-class Master {
-  constructor(cluster) {
-    this.cluster = cluster;
-    this.masterPort = 7000 + 777;
-    this.numCores = os.cpus().length;
-    this.workers = [];
-
-    for (let i = 0; i < this.numCores; i++) {
-      this.makeWorker(i);
-    }
-
-    cluster.on('message', (w, m, h)=> {
-      this.workerMessage(w, m, h)
-    });
-    cluster.on('exit', (w, c, s)=> {
-      this.workerExit(w, c, s)
-    });
+function workerMessage(worker, message, handle) {
+  if (arguments.length === 2) {
+    handle = message;
+    message = worker;
+    worker = undefined;
   }
+  console.log(message);
+}
+function workerExit(worker, code, signal) {
+  console.log('worker died ' + worker.wid);
+  makeWorker(worker.wid);
+}
+function makeWorker(id) {
+  if (!cluster) return false;
 
-  workerMessage(worker, message, handle) {
-    if (arguments.length === 2) {
-      handle = message;
-      message = worker;
-      worker = undefined;
-    }
-    console.log(message);
-  }
-  workerExit(worker, code, signal) {
-    console.log('worker died ' + worker.wid);
-    this.makeWorker(worker.wid);
-  }
-
-  makeWorker(id) {
-    console.log('making worker ' + id);
-    this.workers[id] = this.cluster.fork({WORKER_INDEX: id});
-    this.workers[id].wid = id;
-    this.workers[id].ready = false;
-  };
-
+  console.log('making worker ' + id);
+  workers[id] = cluster.fork({WORKER_INDEX: id});
+  workers[id].wid = id;
+  workers[id].ready = false;
 }
 
-module.exports = Master;
+module.exports.setup = function (c) {
+  cluster = c;
+
+  for (let i = 0; i < numCores; i++) {
+    makeWorker(i);
+  }
+  cluster.on('message', (w, m, h)=> {
+    workerMessage(w, m, h)
+  });
+  cluster.on('exit', (w, c, s)=> {
+    workerExit(w, c, s)
+  });
+};
+

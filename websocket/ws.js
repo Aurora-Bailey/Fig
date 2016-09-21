@@ -3,12 +3,12 @@
 var cluster = require('cluster');
 
 if (cluster.isMaster) {
-  var MasterClass = require('./Master');
-  var Master = new MasterClass(cluster);
+  var Master = require('./Master');
+  Master.setup(cluster);
 
 } else {
-  var WorkerClass = require('./Worker');
-  var Worken = new WorkerClass(process);
+  var Worker = require('./Worker');
+  Worker.setup(process);
 
 }
 

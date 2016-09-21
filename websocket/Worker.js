@@ -1,31 +1,29 @@
 'use strict';
 
-var Lib = require('./Lib');
+var http = require('http'),
+  express = require('express'),
+  WebSocketServer = require('ws').Server,
+  server = http.createServer(),
+  Lib = require('./Lib'),
+  wss = new WebSocketServer({server: server}),
+  app = express(),
+  workerPort = 8000 + 777,
+  process = false,
+  WORKER_INDEX = false;
 
-class Worker{
-  constructor(process){
-    var WORKER_INDEX = process.env.WORKER_INDEX;
-    console.log('from worker ' + WORKER_INDEX);
+module.exports.setup = function(p){
+  process = p;
+  WORKER_INDEX = process.env.WORKER_INDEX;
 
-    setTimeout(()=> {
-      process.send(Lib.randString(100, false, true, false));
-      process.exit();
-    }, 10000 * Math.random());
-  }
-}
+  console.log('I\'m worker ' + WORKER_INDEX);
 
-module.exports = Worker;
+  process.send('READY!!');
+};
 
 
 
 /*
- var gamePort = 7000 + parseInt(WORKER_INDEX) + 1000,
- http = require('http'),
- WebSocketServer = require('ws').Server,
- express = require('express'),
- server = http.createServer(),
- wss = new WebSocketServer({server: server}),
- app = express();
+
 
  app.use(function (req, res) {
  // This is sent when the WebSocket is requested as a webpage
