@@ -1,10 +1,13 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div id="login" class="login">
-    <div class="login-logo">LOGO</div>
-    <div class="login-options">
+    <!--<div class="login-logo">LOGO</div>-->
+    <div class="login-center">
       <div class="login-facebook login-button" v-on:click="login()"><div class="text"><i class="fa fa-facebook fa-fw"></i> Login with Facebook</div></div>
-      <div class="login-google login-button" v-on:click="login()"><div class="text"><i class="fa fa-google-plus fa-fw"></i> Login with Google</div></div>
-      <div class="login-twitter login-button" v-on:click="login()"><div class="text"><i class="fa fa-twitter fa-fw"></i> Login with Twitter</div></div>
+      <!--<div class="login-google login-button" v-on:click="login()"><div class="text"><i class="fa fa-google-plus fa-fw"></i> Login with Google</div></div>-->
+      <!--<div class="login-twitter login-button" v-on:click="login()"><div class="text"><i class="fa fa-twitter fa-fw"></i> Login with Twitter</div></div>-->
+      <div>
+        We will never post on your behalf.
+      </div>
     </div>
   </div>
 </template>
@@ -33,7 +36,8 @@
   @import "../../sass/mixins";
 
   #login {
-    background-color: $base;
+    background-color: $accent;
+    color: $accent-alt;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -48,18 +52,27 @@
       text-align: center;
     }
 
-    .login-options {
+    .login-center {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,1);
       color: white;
-      font-weight: bold;
-      margin: auto;
+      text-align: center;
+      padding: 2em 0;
+
     }
     .login-button{
-      border-radius: 3em;
+      font-weight: bold;
       width: 18.75em;
       height: 3em;
       line-height: 3em;
       margin: 0.5em auto;
       cursor: pointer;
+
+      @include noselect;
     }
     .text {
       text-align: center;
@@ -67,6 +80,7 @@
     }
 
     .login-facebook {
+      color: white;
       background-color: $facebook;
       box-shadow: 0 0 0.5em 0 $facebook;
       &:hover {
@@ -75,6 +89,7 @@
       }
     }
     .login-google {
+      color: white;
       background-color: $googleplus;
       box-shadow: 0 0 0.5em 0 $googleplus;
       &:hover {
@@ -83,6 +98,7 @@
       }
     }
     .login-twitter {
+      color: white;
       background-color: $twitter;
       box-shadow: 0 0 0.5em 0 $twitter;
       &:hover {

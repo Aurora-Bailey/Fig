@@ -65,6 +65,7 @@
 
   #signup {
     background-color: $base;
+    color: $base-alt;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -73,8 +74,6 @@
     z-index: 10080;
     overflow: auto;
     text-align: center;
-    color: $base-alt-soft;
-
     padding: 0.5em;
 
     .box-unit {
@@ -101,21 +100,18 @@
 
       .hash-item{
         padding: 0.4em 1em;
+        background-color: $base;
+        color: $base-alt-soft;
         border: 0.1em solid $base-alt-soft;
         margin: 0.3em;
         display: inline-block;
         cursor: pointer;
-        border-radius: 5em;
+
+        @include noselect;
 
         &:hover {
           color: lighten($base-alt-soft, 20%);
         }
-        @include noselect;
-
-        @include mobile{
-          cursor: default;
-        };
-
         &.active {
           color: $accent-alt;
           border-color: $accent-alt;
@@ -136,11 +132,12 @@
 
     .outro {
       margin-top: 1em;
-      color: lighten($base-alt-soft, 10%);
     }
 
     .done {
       margin-bottom: 0.25em;
+
+      @include noselect;
     }
 
   }

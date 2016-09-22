@@ -18,9 +18,11 @@ function start () {
   ws = new window.WebSocket('ws://localhost:8777')
 
   ws.onopen = () => {
-    Data.state.ws = 'ready'
-    failStart = 0
-    sendObj({m: 'hi'})
+    setTimeout(function () {
+      Data.state.ws = 'ready'
+      failStart = 0
+      sendObj({m: 'hi'})
+    }, 2000)
   }
   ws.onclose = () => {
     Data.state.ws = 'dead'

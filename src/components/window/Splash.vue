@@ -1,11 +1,13 @@
 <template>
   <div id="splash" class="splash">
-    <div class="splash-logo">LOGO</div>
-    <div class="splash-spinner">
-      <i class="fa fa-spinner fa-pulse fa-fw"></i>
-      <span class="sr-only">Loading...</span>
+    <div class="splash-center">
+      <div class="splash-logo">LOGO</div>
+      <div class="splash-spinner">
+        <i class="fa fa-spinner fa-pulse fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="splash-state">Connecting to Server</div>
     </div>
-    <div class="splash-state">Connecting to Server</div>
   </div>
 </template>
 
@@ -31,9 +33,18 @@
     overflow: auto;
     text-align: center;
 
+    .splash-center {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transform: translateY(-50%);
+    }
+
     .splash-logo {
       font-size: 3.75em;
-      margin: 0.5em auto;
+      margin: 0.25em auto;
     }
     .splash-spinner {
       font-size: 7.5em;
