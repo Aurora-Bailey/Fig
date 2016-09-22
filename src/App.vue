@@ -18,7 +18,7 @@
 
 <script>
   /* Data*/
-  import Data from './components/part/Data'
+  import Data from './components/obj/Data'
 
   /* Components */
   // parts
