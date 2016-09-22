@@ -18,19 +18,19 @@
 
 <script>
   /* Data*/
-  import Data from './components/Data'
+  import Data from './components/part/Data'
 
   /* Components */
   // parts
-  import NavMain from './components/NavMain'
+  import NavMain from './components/part/NavMain'
   // pages
-  import Profile from './pages/Profile'
-  import Match from './pages/Match'
-  import Group from './pages/Group'
-  import Chat from './pages/Chat'
-  import FirstLogin from './pages/FirstLogin'
-  import Login from './pages/Login'
-  import Splash from './pages/Splash'
+  import Profile from 'components/page/Profile'
+  import Match from 'components/page/Match'
+  import Group from 'components/page/Group'
+  import Chat from 'components/page/Chat'
+  import FirstLogin from 'components/page/FirstLogin'
+  import Login from 'components/page/Login'
+  import Splash from 'components/page/Splash'
 
   export default {
     components: {
