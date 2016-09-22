@@ -1,15 +1,15 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div class="nav-main">
-    <div class="nav-button" v-on:click="page='profile'" v-bind:class="{ 'active': page=='profile' }">
+    <div class="nav-button" v-bind:class="{ 'active': page=='profile' }">
       <i class="fa fa-child"></i>
     </div>
-    <div class="nav-button"  v-on:click="page='match'" v-bind:class="{ 'active': page=='match' }">
+    <div class="nav-button" v-bind:class="{ 'active': page=='match' }">
       <i class="fa fa-group"></i>
     </div>
-    <div class="nav-button"  v-on:click="page='group'" v-bind:class="{ 'active': page=='group' }">
+    <div class="nav-button" v-bind:class="{ 'active': page=='group' }">
       <i class="fa fa-soccer-ball-o"></i>
     </div>
-    <div class="nav-button"  v-on:click="page='chat'" v-bind:class="{ 'active': page=='chat' }">
+    <div class="nav-button" v-bind:class="{ 'active': page=='chat' }">
       <i class="fa fa-comments"></i>
     </div>
   </div>
@@ -17,9 +17,7 @@
 
 <script>
 export default {
-  props: {
-    page: {twoWay: true}
-  },
+  props: ['page'],
   data () {
     return {
       msg: 'Hello World!'

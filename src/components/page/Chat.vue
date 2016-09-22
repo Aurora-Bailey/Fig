@@ -46,6 +46,9 @@
 </template>
 
 <script>
+  import WebSocket from '../../components/obj/WebSocket'
+  console.log(WebSocket.dummy)
+
   export default {
     props: ['page'],
     data () {

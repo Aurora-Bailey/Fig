@@ -2,21 +2,27 @@
   <div id="login" class="login">
     <div class="login-logo">LOGO</div>
     <div class="login-options">
-      <div class="login-facebook login-button" v-on:click="page='profile'"><div class="text"><i class="fa fa-facebook fa-fw"></i> Login with Facebook</div></div>
-      <div class="login-google login-button" v-on:click="page='profile'"><div class="text"><i class="fa fa-google-plus fa-fw"></i> Login with Google</div></div>
-      <div class="login-twitter login-button" v-on:click="page='first-login'"><div class="text"><i class="fa fa-twitter fa-fw"></i> Login with Twitter</div></div>
+      <div class="login-facebook login-button" v-on:click="login()"><div class="text"><i class="fa fa-facebook fa-fw"></i> Login with Facebook</div></div>
+      <div class="login-google login-button" v-on:click="login()"><div class="text"><i class="fa fa-google-plus fa-fw"></i> Login with Google</div></div>
+      <div class="login-twitter login-button" v-on:click="login()"><div class="text"><i class="fa fa-twitter fa-fw"></i> Login with Twitter</div></div>
     </div>
   </div>
 </template>
 
 <script>
+  import WebSocket from '../../components/obj/WebSocket'
+  console.log(WebSocket.dummy)
+
   export default {
-    props: {
-      page: {twoWay: true}
-    },
+    props: ['page', 'state'],
     data () {
       return {
         msg: 'Login page.'
+      }
+    },
+    methods: {
+      login: function () {
+        WebSocket.sendObj({m: 'login'})
       }
     }
   }
@@ -34,7 +40,7 @@
     right: 0;
     left: 0;
     top: 0;
-    z-index: 10000;
+    z-index: 10090;
     overflow: auto;
 
     .login-logo {

@@ -36,9 +36,7 @@ module.exports.setup = function (p) {
       try {
         var d = JSON.parse(data);
 
-        if(d.m == 'fbtoken'){
-          ws.sendObj({m: 'fbtoken', v: true});
-        }
+        ws.sendObj(d);
 
 
 

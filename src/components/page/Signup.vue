@@ -24,7 +24,7 @@
 
       <div class="spacer">-</div>
 
-      <div class="done full-button box-unit" v-on:click="page='profile'">
+      <div class="done full-button box-unit" v-on:click="signup()">
         Done <i class="fa fa-check fa-fw"></i>
       </div>
     </div>
@@ -32,14 +32,28 @@
 </template>
 
 <script>
+  import WebSocket from '../../components/obj/WebSocket'
+  console.log(WebSocket.dummy)
+
   export default {
-    props: {
-      page: {twoWay: true}
-    },
+    props: ['page'],
     data () {
       return {
         hobbies: [{state: false, tag: 'Gaming'}, {state: false, tag: 'Movies'}, {state: false, tag: 'Fishing'}, {state: false, tag: 'Gardening'}, {state: false, tag: 'Walking'}, {state: false, tag: 'Exercise'}, {state: false, tag: 'ListeningToMusic'}, {state: false, tag: 'Hunting'}, {state: false, tag: 'TeamSports'}, {state: false, tag: 'Shopping'}, {state: false, tag: 'Traveling'}, {state: false, tag: 'Sleeping'}, {state: false, tag: 'Socializing'}, {state: false, tag: 'VideoGames'}, {state: false, tag: 'Sewing'}, {state: false, tag: 'Golf'}, {state: false, tag: 'Relaxing'}, {state: false, tag: 'Crafts'}, {state: false, tag: 'WatchingSports'}, {state: false, tag: 'Bicycling'}, {state: false, tag: 'PlayingCards'}, {state: false, tag: 'Hiking'}, {state: false, tag: 'Cooking'}, {state: false, tag: 'EatingOut'}, {state: false, tag: 'Swimming'}, {state: false, tag: 'Camping'}, {state: false, tag: 'Skiing'}, {state: false, tag: 'Writing'}, {state: false, tag: 'Boating'}, {state: false, tag: 'Motorcycling'}, {state: false, tag: 'AnimalCare'}, {state: false, tag: 'Bowling'}, {state: false, tag: 'Painting'}, {state: false, tag: 'Running'}, {state: false, tag: 'Dancing'}, {state: false, tag: 'HorsebackRiding'}, {state: false, tag: 'Tennis'}, {state: false, tag: 'Billiards'}, {state: false, tag: 'VolunteerWork'}],
         msg: 'FirstLogin page.'
+      }
+    },
+    methods: {
+      signup: function () {
+        var x = []
+        var h = this.hobbies
+        var keys = Object.keys(h)
+        keys.forEach(function (e, i) {
+          if (h[e].state) {
+            x.push(h[e].tag)
+          }
+        })
+        WebSocket.sendObj({m: 'signup', v: x})
       }
     }
   }
@@ -57,7 +71,7 @@
     right: 0;
     left: 0;
     top: 0;
-    z-index: 10000;
+    z-index: 10080;
     overflow: auto;
     text-align: center;
     color: $base-alt-soft;

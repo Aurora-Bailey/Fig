@@ -5,17 +5,13 @@
       <i class="fa fa-spinner fa-pulse fa-fw"></i>
       <span class="sr-only">Loading...</span>
     </div>
+    <div class="splash-state">Connecting to Server</div>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['page'],
-    data () {
-      return {
-        msg: 'Splash page.'
-      }
-    }
+    props: ['page', 'state']
   }
 </script>
 
@@ -32,7 +28,7 @@
     right: 0;
     left: 0;
     top: 0;
-    z-index: 10001;
+    z-index: 10100;
     overflow: auto;
     text-align: center;
 
@@ -43,6 +39,9 @@
     .splash-spinner {
       font-size: 7.5em;
       margin: 0.25em auto;
+    }
+    .splash-state {
+      margin: 1em 0;
     }
   }
 

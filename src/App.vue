@@ -7,19 +7,19 @@
       <chat :page="page" v-show="page=='chat'"></chat>
     </div>
 
-    <login :page.sync="page" v-show="page=='login'"></login>
-    <first-login :page.sync="page" v-show="page=='first-login'"></first-login>
-    <splash :page="page" v-show="page=='splash'"></splash>
+    <login :page="page" :state="state" v-show="state.login!='done'"></login>
+    <signup :page="page" :state="state" v-show="state.signup!='done'"></signup>
+    <splash :page="page" :state="state" v-show="state.ws!='ready'"></splash>
 
-
-    <nav-main :page.sync="page"></nav-main>
+    <nav-main :page="page"></nav-main>
   </div>
 </template>
 
 <script>
   // Objects
   import Data from './components/obj/Data'
-  // import WebSocket from './components/obj/WebSocket'
+  import WebSocket from './components/obj/WebSocket'
+  console.log(WebSocket.dummy)
   // Parts
   import NavMain from './components/part/NavMain'
   // Pages
@@ -27,8 +27,8 @@
   import Match from './components/page/Match'
   import Group from './components/page/Group'
   import Chat from './components/page/Chat'
-  import FirstLogin from './components/page/FirstLogin'
   import Login from './components/page/Login'
+  import Signup from './components/page/Signup'
   import Splash from './components/page/Splash'
 
   export default {
@@ -38,14 +38,13 @@
       Match,
       Group,
       Chat,
-      FirstLogin,
       Login,
+      Signup,
       Splash
     },
     data () {
       return Data
-    },
-    created: function () { setTimeout(() => { this.page = 'login' }, 2000) }
+    }
   }
 </script>
 
