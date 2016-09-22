@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <div id="page-viewport">
-      <profile :page="page" v-show="page=='profile'"></profile>
-      <match :page="page" v-show="page=='match'"></match>
-      <group :page="page" v-show="page=='group'"></group>
-      <chat :page="page" v-show="page=='chat'"></chat>
+      <profile v-show="page=='profile'"></profile>
+      <match v-show="page=='match'"></match>
+      <group v-show="page=='group'"></group>
+      <chat v-show="page=='chat'"></chat>
     </div>
 
-    <login :page="page" :state="state" v-show="state.login!='done'"></login>
-    <signup :page="page" :state="state" v-show="state.signup!='done'"></signup>
-    <splash :page="page" :state="state" v-show="state.ws!='ready'"></splash>
+    <login v-show="state.login!='done'"></login>
+    <signup v-show="state.signup!='done'"></signup>
+    <splash v-show="state.ws!='ready'"></splash>
 
     <nav-main :page="page"></nav-main>
   </div>

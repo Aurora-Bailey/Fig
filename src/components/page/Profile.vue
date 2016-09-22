@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <div>{{msg}} {{page}}</div>
+    <div>{{msg}}</div>
     <br>
     <button>adsf</button>
   </div>
@@ -8,7 +8,6 @@
 
 <script>
 export default {
-  props: ['page'],
   data () {
     return {
       msg: 'Profile page.'

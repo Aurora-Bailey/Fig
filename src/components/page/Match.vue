@@ -1,12 +1,11 @@
 <template>
   <div class="match">
-    <div>{{msg}} {{page}}</div>
+    <div>{{msg}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['page'],
   data () {
     return {
       msg: 'Match page.'

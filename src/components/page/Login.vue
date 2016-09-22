@@ -14,7 +14,6 @@
   console.log(WebSocket.dummy)
 
   export default {
-    props: ['page', 'state'],
     data () {
       return {
         msg: 'Login page.'

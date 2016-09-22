@@ -1,5 +1,5 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-  <div id="first-login" class="first-login">
+  <div id="signup" class="signup">
     <div class="narrow-wrapper">
       <div class="welcome box-unit">
         Welcome!
@@ -36,7 +36,6 @@
   console.log(WebSocket.dummy)
 
   export default {
-    props: ['page'],
     data () {
       return {
         hobbies: [{state: false, tag: 'Gaming'}, {state: false, tag: 'Movies'}, {state: false, tag: 'Fishing'}, {state: false, tag: 'Gardening'}, {state: false, tag: 'Walking'}, {state: false, tag: 'Exercise'}, {state: false, tag: 'ListeningToMusic'}, {state: false, tag: 'Hunting'}, {state: false, tag: 'TeamSports'}, {state: false, tag: 'Shopping'}, {state: false, tag: 'Traveling'}, {state: false, tag: 'Sleeping'}, {state: false, tag: 'Socializing'}, {state: false, tag: 'VideoGames'}, {state: false, tag: 'Sewing'}, {state: false, tag: 'Golf'}, {state: false, tag: 'Relaxing'}, {state: false, tag: 'Crafts'}, {state: false, tag: 'WatchingSports'}, {state: false, tag: 'Bicycling'}, {state: false, tag: 'PlayingCards'}, {state: false, tag: 'Hiking'}, {state: false, tag: 'Cooking'}, {state: false, tag: 'EatingOut'}, {state: false, tag: 'Swimming'}, {state: false, tag: 'Camping'}, {state: false, tag: 'Skiing'}, {state: false, tag: 'Writing'}, {state: false, tag: 'Boating'}, {state: false, tag: 'Motorcycling'}, {state: false, tag: 'AnimalCare'}, {state: false, tag: 'Bowling'}, {state: false, tag: 'Painting'}, {state: false, tag: 'Running'}, {state: false, tag: 'Dancing'}, {state: false, tag: 'HorsebackRiding'}, {state: false, tag: 'Tennis'}, {state: false, tag: 'Billiards'}, {state: false, tag: 'VolunteerWork'}],
@@ -64,7 +63,7 @@
   @import "../../sass/variables";
   @import "../../sass/mixins";
 
-  #first-login {
+  #signup {
     background-color: $base;
     position: absolute;
     bottom: 0;

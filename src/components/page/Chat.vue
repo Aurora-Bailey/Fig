@@ -1,6 +1,6 @@
 <template>
   <div class="chat">
-    <div>{{msg}} {{page}}</div>
+    <div>{{msg}}</div>
     <div>
       asdf<br>
       asdf<br>
@@ -50,7 +50,6 @@
   console.log(WebSocket.dummy)
 
   export default {
-    props: ['page'],
     data () {
       return {
         msg: 'Chat page.'
