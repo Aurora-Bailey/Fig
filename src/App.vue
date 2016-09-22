@@ -27,9 +27,9 @@
   import Match from './components/page/Match'
   import Group from './components/page/Group'
   import Chat from './components/page/Chat'
-  import Login from './components/page/Login'
-  import Signup from './components/page/Signup'
-  import Splash from './components/page/Splash'
+  import Login from './components/window/Login'
+  import Signup from './components/window/Signup'
+  import Splash from './components/window/Splash'
 
   export default {
     components: {

@@ -32,7 +32,7 @@
 </template>
 
 <script>
-  import WebSocket from '../../components/obj/WebSocket'
+  import WebSocket from '../obj/WebSocket'
   console.log(WebSocket.dummy)
 
   export default {
