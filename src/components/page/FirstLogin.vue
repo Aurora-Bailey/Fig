@@ -47,8 +47,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-  @import "../sass/variables";
-  @import "../sass/mixins";
+  @import "../../sass/variables";
+  @import "../../sass/mixins";
 
   #first-login {
     background-color: $base;
