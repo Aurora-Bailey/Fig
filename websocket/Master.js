@@ -33,7 +33,9 @@ module.exports.setup = function (c) {
     makeWorker(i);
   }
   cluster.on('message', (w, m, h)=> {
-    workerMessage(w, m, h)
+    if(m.m == 'ready'){
+      w.ready = true;
+    }
   });
   cluster.on('exit', (w, c, s)=> {
     workerExit(w, c, s)

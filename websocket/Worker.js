@@ -13,7 +13,6 @@ var http = require('http'),
   NODE_ENV = false;
 
 
-
 module.exports.setup = function (p) {
   process = p;
   WORKER_INDEX = process.env.WORKER_INDEX;
@@ -30,12 +29,20 @@ module.exports.setup = function (p) {
       try {
         ws.send(JSON.stringify(obj));
       } catch (err) {
-        if (NODE_ENV == 'development')console.log(err);
+        console.log(err);
       }
     };
     ws.on('message', function incoming(data) {
       try {
         var d = JSON.parse(data);
+
+        if(d.m == 'fbtoken'){
+          ws.sendObj({m: 'fbtoken', v: true});
+        }
+
+
+
+
         console.log(d);
       }
       catch (err) {
@@ -64,15 +71,5 @@ module.exports.setup = function (p) {
     console.log('Worker ' + WORKER_INDEX + ' listening on port ' + server.address().port)
   });
 
-  process.send('worker ' + WORKER_INDEX + ' READY!!');
+  process.send({m: 'ready'});
 };
-
-
-/*
-
-
-
-
-
-
- */
