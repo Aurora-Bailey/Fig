@@ -24,7 +24,7 @@
     },
     methods: {
       login: function () {
-        WebSocket.sendObj({m: 'login'})
+        WebSocket.sendObj({m: 'login', token: '498df9g6as97dg869g567dsh4f67dg'})
       }
     }
   }

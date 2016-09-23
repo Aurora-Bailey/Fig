@@ -28,7 +28,7 @@
     },
     methods: {
       pageTo: function (page) {
-        WebSocket.shortObj({m: 'page', p: page})
+        WebSocket.shortObj({m: 'page', page: page})
       }
     }
   }

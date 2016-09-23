@@ -42,8 +42,10 @@ function handleMessage (d) {
     Data.state.login = 'done'
   } else if (d.m === 'signup') {
     Data.state.signup = 'done'
-  } else if (d.m === 'page') {
-    Data.page = d.p
+  }
+
+  if (typeof d.page !== 'undefined') {
+    Data.page = d.page
   }
 }
 
