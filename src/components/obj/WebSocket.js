@@ -32,13 +32,18 @@ function start () {
   }
   ws.onmessage = (e) => {
     var d = JSON.parse(e.data)
+    handleMessage(d)
     console.log(d)
+  }
+}
 
-    if (d.m === 'login') {
-      Data.state.login = 'done'
-    } else if (d.m === 'signup') {
-      Data.state.signup = 'done'
-    }
+function handleMessage (d) {
+  if (d.m === 'login') {
+    Data.state.login = 'done'
+  } else if (d.m === 'signup') {
+    Data.state.signup = 'done'
+  } else if (d.m === 'page') {
+    Data.page = d.p
   }
 }
 
@@ -50,5 +55,10 @@ function sendObj (object) {
   ws.send(JSON.stringify(object))
 }
 
+// short circuit, skip the WebSocket.
+function shortObj (object) {
+  handleMessage(object)
+}
+
 var dummy = 'placeholder to keep lint happy'
-export default {sendObj, dummy}
+export default {sendObj, shortObj, dummy}

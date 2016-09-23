@@ -1,29 +1,37 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div class="nav-main">
-    <div class="nav-button" v-bind:class="{ 'active': page=='profile' }">
+    <div class="nav-button" v-bind:class="{ 'active': page=='profile' }" v-on:click="pageTo('profile')">
       <i class="fa fa-child"></i>
     </div>
-    <div class="nav-button" v-bind:class="{ 'active': page=='match' }">
+    <div class="nav-button" v-bind:class="{ 'active': page=='match' }" v-on:click="pageTo('match')">
       <i class="fa fa-group"></i>
     </div>
-    <div class="nav-button" v-bind:class="{ 'active': page=='group' }">
+    <div class="nav-button" v-bind:class="{ 'active': page=='group' }" v-on:click="pageTo('group')">
       <i class="fa fa-soccer-ball-o"></i>
     </div>
-    <div class="nav-button" v-bind:class="{ 'active': page=='chat' }">
+    <div class="nav-button" v-bind:class="{ 'active': page=='chat' }" v-on:click="pageTo('chat')">
       <i class="fa fa-comments"></i>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  props: ['page'],
-  data () {
-    return {
-      msg: 'Hello World!'
+  import WebSocket from '../obj/WebSocket'
+  console.log(WebSocket.dummy)
+
+  export default {
+    props: ['page'],
+    data () {
+      return {
+        msg: 'Hello World!'
+      }
+    },
+    methods: {
+      pageTo: function (page) {
+        WebSocket.shortObj({m: 'page', p: page})
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
