@@ -36,18 +36,7 @@ module.exports.setup = function (p) {
     ws.on('message', function incoming(data) {
       try {
         var d = JSON.parse(data);
-
-        //ws.sendObj(d);
-
-
-        /*
-        db.collection('asdf').insertOne({asdf: 'qqqqq', d: {f: 'aaaa', q: 'ads;flkj'}}, function(err, result){
-          if(!err){
-            console.log('no error');
-          }
-        });
-        */
-
+        handleMessage(ws, d);
         console.log(d);
       }
       catch (err) {
@@ -78,3 +67,22 @@ module.exports.setup = function (p) {
 
   process.send({m: 'ready'});
 };
+
+
+function handleMessage(ws, d) {
+  if (d.m === 'login') {
+
+  }
+
+
+//ws.sendObj(d);
+
+
+  /*
+   db.collection('asdf').insertOne({asdf: 'qqqqq', d: {f: 'aaaa', q: 'ads;flkj'}}, function(err, result){
+   if(!err){
+   console.log('no error');
+   }
+   });
+   */
+}
