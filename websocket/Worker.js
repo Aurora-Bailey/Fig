@@ -4,6 +4,7 @@ var http = require('http'),
   express = require('express'),
   WebSocketServer = require('ws').Server,
   server = http.createServer(),
+  db = require('./MongoDB').getDb(),
   Lib = require('./Lib'),
   wss = new WebSocketServer({server: server}),
   app = express(),
@@ -39,7 +40,11 @@ module.exports.setup = function (p) {
         ws.sendObj(d);
 
 
-
+        db.collection('asdf').insertOne({asdf: 'qqqqq', d: {f: 'aaaa', q: 'ads;flkj'}}, function(err, result){
+          if(!err){
+            console.log('no error');
+          }
+        });
 
         console.log(d);
       }

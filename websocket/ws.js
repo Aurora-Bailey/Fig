@@ -7,9 +7,15 @@ if (cluster.isMaster) {
   Master.setup(cluster);
 
 } else {
-  var Worker = require('./Worker');
-  Worker.setup(process);
-
+  var MongoDB = require('./MongoDB');
+  MongoDB.connectToServer(function (err) {
+    if (err) {
+      console.log('MongoDB Error: ', err)
+    } else {
+      var Worker = require('./Worker');
+      Worker.setup(process);
+    }
+  });
 }
 
 
