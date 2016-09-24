@@ -10,7 +10,7 @@
 
     <login v-show="state.login!='done'"></login>
     <signup v-show="state.signup!='done'"></signup>
-    <splash v-show="state.ws!='ready'"></splash>
+    <splash :state="state" v-show="state.ws!='ready' || state.fbsdk!=true || state.login=='idk'"></splash>
   </div>
 </template>
 

@@ -3,6 +3,8 @@
     <!--<div class="login-logo">LOGO</div>-->
     <div class="login-center">
       <div class="login-facebook login-button" v-on:click="login()"><div class="text"><i class="fa fa-facebook fa-fw"></i> Login with Facebook</div></div>
+      <div class="login-facebook login-button" v-on:click="token()"><div class="text"><i class="fa fa-facebook fa-fw"></i> token with Facebook</div></div>
+      <div class="login-facebook login-button" v-on:click="logout()"><div class="text"><i class="fa fa-facebook fa-fw"></i> logout with Facebook</div></div>
       <!--<div class="login-google login-button" v-on:click="login()"><div class="text"><i class="fa fa-google-plus fa-fw"></i> Login with Google</div></div>-->
       <!--<div class="login-twitter login-button" v-on:click="login()"><div class="text"><i class="fa fa-twitter fa-fw"></i> Login with Twitter</div></div>-->
       <div>
@@ -13,8 +15,7 @@
 </template>
 
 <script>
-  import WebSocket from '../obj/WebSocket'
-  console.log(WebSocket.dummy)
+  import Facebook from '../obj/Facebook'
 
   export default {
     data () {
@@ -24,7 +25,13 @@
     },
     methods: {
       login: function () {
-        WebSocket.sendObj({m: 'login', token: '498df9g6as97dg869g567dsh4f67dg'})
+        Facebook.login()
+      },
+      token: function () {
+        Facebook.token()
+      },
+      logout: function () {
+        Facebook.logout()
       }
     }
   }

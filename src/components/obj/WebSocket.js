@@ -1,12 +1,7 @@
-/*
- var x = new window.WebSocket('ws://localhost:7777')
- x.onopen = function () {
- console.log('asdf')
- }
- */
 import Data from './Data'
 
 var ws = {}
+var sendQueue = []
 var failStart = 0 // web socket fails to start
 Data.state.ws = 'dead'
 start()
@@ -22,6 +17,10 @@ function start () {
       Data.state.ws = 'ready'
       failStart = 0
       sendObj({m: 'hi'})
+
+      sendQueue.forEach((e, i) => {
+        sendObj(e)
+      })
     }, 2000)
   }
   ws.onclose = () => {
@@ -39,7 +38,11 @@ function start () {
 
 function handleMessage (d) {
   if (d.m === 'login') {
-    Data.state.login = 'done'
+    if (d.token === false) {
+      Data.state.login = 'request'
+    } else {
+      Data.state.login = 'done'
+    }
   } else if (d.m === 'signup') {
     Data.state.signup = 'done'
   }
@@ -49,9 +52,14 @@ function handleMessage (d) {
   }
 }
 
-function sendObj (object) {
+function sendObj (object, queue = false) {
   if (Data.state.ws !== 'ready') {
-    window.alert('WebSocket is not connected.')
+    if (queue) {
+      sendQueue.push(object)
+      console.log('object added to web socket queue')
+    } else {
+      window.alert('WebSocket is not connected.')
+    }
     return false
   }
   ws.send(JSON.stringify(object))

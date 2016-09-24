@@ -6,13 +6,16 @@
         <i class="fa fa-spinner fa-pulse fa-fw"></i>
         <span class="sr-only">Loading...</span>
       </div>
-      <div class="splash-state">Connecting to Server</div>
+      <div class="splash-state" v-show="state.ws!='ready'">Connecting to Server</div>
+      <div class="splash-state" v-show="state.fbsdk!=true">Connecting to Facebook</div>
+      <div class="splash-state" v-show="state.login=='idk'">Logging in</div>
     </div>
   </div>
 </template>
 
 <script>
   export default {
+    props: ['state']
   }
 </script>
 
