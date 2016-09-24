@@ -53,6 +53,7 @@
           }
         })
         WebSocket.sendObj({m: 'signup', v: x})
+        WebSocket.shortObj({m: 'signup', v: x})
       }
     }
   }

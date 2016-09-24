@@ -32,8 +32,10 @@ function login () {
   FB.login((response) => {
     if (response.status === 'connected') {
       WebSocket.sendObj({m: 'login', token: response.authResponse.accessToken})
+      WebSocket.shortObj({m: 'login', token: response.authResponse.accessToken})
     } else {
       WebSocket.sendObj({m: 'login', token: false})
+      WebSocket.shortObj({m: 'login', token: false})
     }
   }, {scope: 'public_profile,email,user_friends'})
 }
@@ -44,8 +46,10 @@ function token () {
   FB.getLoginStatus((response) => {
     if (response.status === 'connected') {
       WebSocket.sendObj({m: 'login', token: response.authResponse.accessToken}, true)
+      WebSocket.shortObj({m: 'login', token: response.authResponse.accessToken}, true)
     } else {
       WebSocket.sendObj({m: 'login', token: false}, true)
+      WebSocket.shortObj({m: 'login', token: false}, true)
     }
   })
 }
@@ -55,6 +59,7 @@ function logout () {
 
   FB.logout((response) => {
     WebSocket.sendObj({m: 'login', token: false})
+    WebSocket.shortObj({m: 'login', token: false})
   })
 }
 

@@ -37,14 +37,16 @@ module.exports.setup = function (p) {
       try {
         var d = JSON.parse(data);
 
-        ws.sendObj(d);
+        //ws.sendObj(d);
 
 
+        /*
         db.collection('asdf').insertOne({asdf: 'qqqqq', d: {f: 'aaaa', q: 'ads;flkj'}}, function(err, result){
           if(!err){
             console.log('no error');
           }
         });
+        */
 
         console.log(d);
       }
